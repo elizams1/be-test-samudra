@@ -1,0 +1,27 @@
+{
+  "name": "be-test-samudra",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/elizams1/be-test-samudra.git",
+  "author": "eliza.sharingvision <elizamaharani@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "format": "prettier --write \"src/**/*.{ts,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,json}\""
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.0",
+    "@types/pg": "^8.20.0",
+    "prettier": "^3.8.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^6.0.3"
+  }
+}
