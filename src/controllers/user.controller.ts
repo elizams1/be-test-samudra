@@ -4,7 +4,7 @@ import { fetchRandomUser } from '../services/user.service';
 
 export const getListFormattedUser = async (req:Request, res: Response)=>{
     try{
-        const {results, page} = (req.body ?? {}) as {results?:number, page?:number}
+        const {results, page, search} = (req.body ?? {}) as {results?:number, page?:number, search?:string}
         if (results === undefined || page === undefined) {
             return res.status(400).json({
                 success: false,
@@ -12,7 +12,7 @@ export const getListFormattedUser = async (req:Request, res: Response)=>{
             });
         }
 
-        const userFomatted:UserFormatted[] = await fetchRandomUser(results, page)
+        const userFomatted:UserFormatted[] = await fetchRandomUser(results, page, search)
 
         return res.status(200).json({
             success: true,
