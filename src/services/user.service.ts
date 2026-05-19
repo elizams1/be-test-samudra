@@ -15,11 +15,7 @@ function formatUser(user: RandomUserRaw): UserFormatted {
   };
 }
 
-export async function fetchRandomUser(
-  results: number,
-  page: number,
-  search?: string,
-): Promise<UserFormatted[]> {
+export async function fetchRandomUser(results: number, page: number): Promise<UserFormatted[]> {
   const response = await axios.get<RandomUserApiResponse>(process.env.RANDOM_USER_API ?? '', {
     params: {
       results,
@@ -28,11 +24,6 @@ export async function fetchRandomUser(
   });
 
   let res = response.data.results.map((user) => formatUser(user));
-
-  //jika user memberikan payload search
-  if (search) {
-    res = res.filter((user) => user.name.toLowerCase().includes(search.toLowerCase()));
-  }
 
   return res;
 }
